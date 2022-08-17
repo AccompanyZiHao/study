@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>leetcode 202.快乐数 | 吴小白 blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?248d9036a61108ac328748f98ff1dcb0";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+      </script>
+    <script>
+      (function() {
+         if (location.href.indexOf('github.io') > -1 || location.href.indexOf('gitee.io') > -1) {
+             location.href = 'https://wuxiaobai.cn'
+         }
+      })();
+      </script><script type='application/ld+json'>
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "leetcode 202.快乐数",
+            "url": "https://wuxiaobai.cn/leetcode/leetcode-202-kuai-le-shu.html",
+            "image": [
+              "https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image"
+              ],
+            "datePublished": "2022-01-25T17:01:58.000Z",
+            "dateModified": "2022-05-17T08:31:15.000Z",
+            "author": [{
+                "@type": "Person",
+                "name": "吴小白",
+                "url": "https://github.com/AccompanyZiHao/study"
+            }]
+          }
+      </script>
+    <meta name="description" content="wu xiao bai&#39;s blog， 一个前端小白，记录日常遇到的问题以及解决方案，总结归纳成文档以方便后续的查找阅读，寻找一起发现未来的新大陆的你。">
+    <meta property="article:published_time" content="2022-01-25T17:01:58.000Z">
+    <meta property="article:modified_time" content="2022-05-17T08:31:15.000Z">
+    <meta property="og:site_name" content="wuxiaobai`s blog">
+    <meta property="og:title" content="leetcode 202.快乐数">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wuxiaobai.cn/leetcode/leetcode-202-kuai-le-shu.html">
+    <meta property="og:image" content="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image">
+    <meta name="twitter:title" content="leetcode 202.快乐数">
+    <meta name="twitter:url" content="https://wuxiaobai.cn/leetcode/leetcode-202-kuai-le-shu.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="算法, leetcode">
+    <meta property="article:tag" content="算法">
+    <meta name="keywords" content="吴小白，wuxiaobai，javascript，ES6，js，博客，总结，前端，归纳。 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-site-verification" content="code-hp6IEwjoOt">
+    <meta name="360-site-verification" content="19d8a61398aa8dafb3c57808fdec09fd">
+    <meta name="msvalidate.01" content="BCD4672E3D575EA13E440C8FCAF8ACED">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/css/0.styles.74345fc0.css" as="style"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/app.ea8024b0.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/3.c5a22957.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/1.56ff20d7.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/25.9f0d9713.js" as="script"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/10.3987f424.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/11.822cf5a0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/12.4533dc0d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/13.e32270f0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/14.ebc89fa2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/15.47b872b3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/16.3e13e072.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/17.31eb3665.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/18.d277d3e8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/19.aa417e25.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/20.e06ae432.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/21.617246bb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/22.96430577.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/23.3811048a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/24.5f8df972.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/26.d005ae81.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/27.ed700a4d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/28.c0ba51a2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/29.3c524c37.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/30.c3d85871.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/31.a2f2beff.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/32.f0f52f84.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/33.41477bf4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/34.5284afad.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/35.3a6a8148.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/36.654ddf6d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/37.c64c9181.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/38.a55e88af.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/39.b5cb24ec.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/4.56f9e857.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/40.4e5abe9c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/41.f25c6a0a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/42.d19c518d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/43.1e2006ec.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/44.f12a69d8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/45.cd8302ae.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/46.e8129e7f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/47.29834f57.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/48.9488905d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/49.e4ff1f05.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/5.90dccfd7.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/50.ac12b7aa.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/51.fb3f5d02.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/52.76e1cbc2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/53.3c89c1b1.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/54.f160104f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/55.6449d010.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/56.8f384c8e.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/57.5d5efbe3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/58.bfae00e4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/59.85d20030.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/6.cb483b76.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/7.e8cc960c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/8.8972209b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/9.802eb800.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/css/0.styles.74345fc0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>吴小白 blog</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>wu xiao bai's blog， 一个前端小白，记录日常遇到的问题以及解决方案，总结归纳成文档以方便后续的查找阅读，寻找一起发现未来的新大陆的你。</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">吴小白 blog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/leetcode/" class="nav-link"><i class="undefined"></i>
+  leetcode
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      吴小白的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/AccompanyZiHao" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2559318799689463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><img src="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image" alt="author-avatar" class="personal-img" data-v-39576ba9> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>44</h3> <h6 data-v-39576ba9>文章</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>15</h3> <h6 data-v-39576ba9>标签</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/leetcode/" class="nav-link"><i class="undefined"></i>
+  leetcode
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      吴小白的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/AccompanyZiHao" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2559318799689463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>leetcode 202.快乐数</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page"><section><div class="page-title"><h1 class="title">leetcode 202.快乐数</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>白菜</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>2022/1/26</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>算法</span><span class="tag-item" data-v-f875f3fc>leetcode</span></i></div></div> <div class="theme-reco-content content__default"><p>今天上完班就回家了，要先快乐起来！</p> <p>编写一个算法来判断一个数 n 是不是快乐数。</p> <p>「快乐数」定义为：</p> <ul><li>对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。</li> <li>然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。</li> <li>如果 可以变为 1，那么这个数就是快乐数。</li> <li>如果 n 是快乐数就返回 true ；不是，则返回 false 。</li></ul> <h2 id="示例-1"><a href="#示例-1" class="header-anchor">#</a> 示例 1：</h2> <div class="language- extra-class"><pre class="language-text"><code>输入：n = 19
+输出：true
+解释：
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1
+</code></pre></div><h2 id="示例-2"><a href="#示例-2" class="header-anchor">#</a> 示例 2：</h2> <div class="language- extra-class"><pre class="language-text"><code>输入：n = 2
+输出：false
+</code></pre></div><p>提示：</p> <div class="language- extra-class"><pre class="language-text"><code>1 &lt;= n &lt;= 231 - 1
+</code></pre></div><p>看完示例我们画了个图
+<img src="data:image/jpeg;base64,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" alt="alt">
+是不是很熟悉，这个不就是环形链表嘛，不同的是加了个平方求和
+那我们先来看计算出每位数的值，先来思考，如果该位数只有一个 例如 2 我们使用 2 % 10 = 2 通过求余数的方法来计算个位数的，如果这个数是 2 位，3 位甚至更多呢?</p> <p>是不是一时之间不知道怎么搞，当我们有了个位数的计算方法，那我们就一直计算个位数的就好了，当我们每计算完一个各位数我们就除以十把该数降位，然后循环计算直到该数字小于 0 就终止循环 getNext</p> <p>我们接着看一下个难点，既然是快慢指针，我们终止的条件是什么呢？</p> <ol><li>快指针的值等于慢指针</li> <li>快指针的值为 1</li></ol> <h2 id="solution"><a href="#solution" class="header-anchor">#</a> solution</h2> <div class="language- extra-class"><pre class="language-text"><code>/*
+ * @lc app=leetcode.cn id=202 lang=javascript
+ *
+ * [202] 快乐数
+ */
+
+// @lc code=start
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function (n) {
+  let last = n
+  let first = getNext(n)
+  while (first != last &amp;&amp; first != 1) {
+    first = getNext(getNext(first))
+    last = getNext(last)
+  }
+  return first == 1
+};
+
+var getNext = (n) =&gt; {
+  let res = 0 // 个位数的平方和
+  while (n &gt; 0) {
+    res += (n % 10) * (n % 10)
+    n = Math.floor(n / 10)
+  }
+  return res
+}
+// @lc code=end
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/05/17/ 16:31:15</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-202-kuai-le-shu.html#示例-1" class="sidebar-link reco-side-示例-1" data-v-cb1513f6>示例 1：</a></li><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-202-kuai-le-shu.html#示例-2" class="sidebar-link reco-side-示例-2" data-v-cb1513f6>示例 2：</a></li><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-202-kuai-le-shu.html#solution" class="sidebar-link reco-side-solution" data-v-cb1513f6>solution</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><canvas id="vuepress-canvas-cursor"></canvas><div></div></div></div>
+    <script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/app.ea8024b0.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/3.c5a22957.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/1.56ff20d7.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/25.9f0d9713.js" defer></script>
+  </body>
+</html>

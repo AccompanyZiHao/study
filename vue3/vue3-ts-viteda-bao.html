@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue3 + ts + vite 打包 | 吴小白 blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?248d9036a61108ac328748f98ff1dcb0";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+      </script>
+    <script>
+      (function() {
+         if (location.href.indexOf('github.io') > -1 || location.href.indexOf('gitee.io') > -1) {
+             location.href = 'https://wuxiaobai.cn'
+         }
+      })();
+      </script><script type='application/ld+json'>
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "vue3 + ts + vite 打包",
+            "url": "https://wuxiaobai.cn/vue3/vue3-ts-viteda-bao.html",
+            "image": [
+              "https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image"
+              ],
+            "datePublished": "2022-05-06T00:00:00.000Z",
+            "dateModified": "2022-05-17T03:50:22.000Z",
+            "author": [{
+                "@type": "Person",
+                "name": "吴小白",
+                "url": "https://github.com/AccompanyZiHao/study"
+            }]
+          }
+      </script>
+    <meta name="description" content="wu xiao bai&#39;s blog， 一个前端小白，记录日常遇到的问题以及解决方案，总结归纳成文档以方便后续的查找阅读，寻找一起发现未来的新大陆的你。">
+    <meta property="article:published_time" content="2022-05-06T00:00:00.000Z">
+    <meta property="article:modified_time" content="2022-05-17T03:50:22.000Z">
+    <meta property="og:site_name" content="wuxiaobai`s blog">
+    <meta property="og:title" content="vue3 + ts + vite 打包">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wuxiaobai.cn/vue3/vue3-ts-viteda-bao.html">
+    <meta property="og:image" content="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image">
+    <meta name="twitter:title" content="vue3 + ts + vite 打包">
+    <meta name="twitter:url" content="https://wuxiaobai.cn/vue3/vue3-ts-viteda-bao.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="vue3, vite, TS">
+    <meta property="article:tag" content="vue3">
+    <meta name="keywords" content="吴小白，wuxiaobai，javascript，ES6，js，博客，总结，前端，归纳。 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-site-verification" content="code-hp6IEwjoOt">
+    <meta name="360-site-verification" content="19d8a61398aa8dafb3c57808fdec09fd">
+    <meta name="msvalidate.01" content="BCD4672E3D575EA13E440C8FCAF8ACED">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/css/0.styles.74345fc0.css" as="style"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/app.ea8024b0.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/3.c5a22957.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/1.56ff20d7.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/22.96430577.js" as="script"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/10.3987f424.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/11.822cf5a0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/12.4533dc0d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/13.e32270f0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/14.ebc89fa2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/15.47b872b3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/16.3e13e072.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/17.31eb3665.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/18.d277d3e8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/19.aa417e25.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/20.e06ae432.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/21.617246bb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/23.3811048a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/24.5f8df972.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/25.9f0d9713.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/26.d005ae81.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/27.ed700a4d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/28.c0ba51a2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/29.3c524c37.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/30.c3d85871.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/31.a2f2beff.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/32.f0f52f84.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/33.41477bf4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/34.5284afad.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/35.3a6a8148.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/36.654ddf6d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/37.c64c9181.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/38.a55e88af.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/39.b5cb24ec.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/4.56f9e857.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/40.4e5abe9c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/41.f25c6a0a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/42.d19c518d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/43.1e2006ec.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/44.f12a69d8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/45.cd8302ae.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/46.e8129e7f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/47.29834f57.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/48.9488905d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/49.e4ff1f05.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/5.90dccfd7.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/50.ac12b7aa.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/51.fb3f5d02.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/52.76e1cbc2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/53.3c89c1b1.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/54.f160104f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/55.6449d010.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/56.8f384c8e.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/57.5d5efbe3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/58.bfae00e4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/59.85d20030.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/6.cb483b76.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/7.e8cc960c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/8.8972209b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/9.802eb800.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/css/0.styles.74345fc0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>吴小白 blog</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>wu xiao bai's blog， 一个前端小白，记录日常遇到的问题以及解决方案，总结归纳成文档以方便后续的查找阅读，寻找一起发现未来的新大陆的你。</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">吴小白 blog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/leetcode/" class="nav-link"><i class="undefined"></i>
+  leetcode
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      吴小白的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/AccompanyZiHao" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2559318799689463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><img src="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image" alt="author-avatar" class="personal-img" data-v-39576ba9> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>44</h3> <h6 data-v-39576ba9>文章</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>15</h3> <h6 data-v-39576ba9>标签</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/leetcode/" class="nav-link"><i class="undefined"></i>
+  leetcode
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      吴小白的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/AccompanyZiHao" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2559318799689463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>vue3 + ts + vite 打包</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page"><section><div class="page-title"><h1 class="title">vue3 + ts + vite 打包</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>白菜</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>2022/5/6</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>vue3</span><span class="tag-item" data-v-f875f3fc>vite</span><span class="tag-item" data-v-f875f3fc>TS</span></i></div></div> <div class="theme-reco-content content__default"><p>做项目的时候用 <code>vue3+ts+vite</code> 写了几个简单 h5 的页面，但是打包出来的体积却有 20M+，稍微思考了下，之前的项目也没有这么大体积呀，看了下文件，明白了可能是图片的问题，图片比较多
+然后就思考怎么做优化，于是就面向 <code>google</code> 找了个还不错的插件</p> <ol><li>目前 <code>vite2.x</code> 是基于 <code>rollup</code> 打包的，而不是 <code>esbuild，</code> <a href="https://cn.vitejs.dev/guide/why.html#slow-server-start" target="_blank" rel="nofollow noopener noreferrer">详见这里<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>打包使用的是 <code>rollup-plugin-visualizer</code>（类似<code>webpack</code>的插件：<code>webpack-bundle-analyzer</code>） 进行打包分析，打包之后，会在根目录默认生成一个 <code>report.html</code> 文件</li></ol> <h2 id="打包分析-npm-i-rollup-plugin-visualizer-d"><a href="#打包分析-npm-i-rollup-plugin-visualizer-d" class="header-anchor">#</a> 打包分析 <code>npm i rollup-plugin-visualizer -D</code></h2> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> analyze <span class="token keyword">from</span> <span class="token string">'rollup-plugin-visualizer'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">analyze</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token operator">...</span>
+<span class="token comment">// or 自定义生成的文件名</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> visualizer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rollup-plugin-visualizer'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">visualizer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">open</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">brotliSize</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token literal-property property">filename</span><span class="token operator">:</span> <span class="token string">'report.html'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token operator">...</span>
+
+</code></pre></div><p>打包 <code>npm run build</code>, 会在根目录生成一个 <code>stats.html</code>, 在浏览器中打开</p> <p><img src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/img/build01.222f0dce.jpg" alt="alt" title="build01"></p> <h2 id="文件压缩-npm-i-vite-plugin-compression-d"><a href="#文件压缩-npm-i-vite-plugin-compression-d" class="header-anchor">#</a> 文件压缩 <code>npm i vite-plugin-compression -D</code></h2> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> viteCompression <span class="token keyword">from</span> <span class="token string">'vite-plugin-compression'</span><span class="token punctuation">;</span>
+<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+ <span class="token function">viteCompression</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre></div><h2 id="压缩图片-npm-i-vite-plugin-imagemin-d"><a href="#压缩图片-npm-i-vite-plugin-imagemin-d" class="header-anchor">#</a> 压缩图片 <code>npm i vite-plugin-imagemin -D</code></h2> <p>由于 <code>imagemin</code> 在国内不好安装，有以下几个方案：</p> <ol><li>使用 <code>yarn</code> 在 <code>package.json</code> 内配置(推荐)</li></ol> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token string-property property">&quot;resolutions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token string-property property">&quot;bin-wrapper&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm:bin-wrapper-china&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><ol start="2"><li>使用 npm,在电脑 host 文件加上如下配置即可</li></ol> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token number">199.232</span><span class="token number">.4</span><span class="token number">.133</span> raw<span class="token punctuation">.</span>githubusercontent<span class="token punctuation">.</span>com
+</code></pre></div><ol start="3"><li>使用 cnpm 安装(不推荐)</li></ol> <div class="language-JavaScript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> viteImagemin <span class="token keyword">from</span> <span class="token string">'vite-plugin-imagemin'</span>
+
+<span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+  <span class="token function">viteImagemin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">gifsicle</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">optimizationLevel</span><span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">interlaced</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">optipng</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">optimizationLevel</span><span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">webp</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">quality</span><span class="token operator">:</span> <span class="token number">75</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">mozjpeg</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">quality</span><span class="token operator">:</span> <span class="token number">65</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">pngquant</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">quality</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0.65</span><span class="token punctuation">,</span> <span class="token number">0.9</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">speed</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">svgo</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">removeViewBox</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">removeEmptyAttrs</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>按照这个步骤我打包并没成功，而是打包卡主了，目前并没有发现好的解决方案，然后图片就采用手动压缩的方式进行， <a href="https://tinypng.com/" target="_blank" rel="nofollow noopener noreferrer">tinypng<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>文件里面有几个较大的 <code>.gif</code> 图片有个<code>10M+</code>，于是就采用<code>cdn</code>的方式外部引入，这样子就减少了打包的体积。</p> <p><img src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/img/build02.2b4c7ac9.jpg" alt="alt" title="build02"></p> <p>浏览器兼容性问题</p> <blockquote><p>Vite 的默认浏览器支持基线是Native ESM,此插件为不支持本机 ESM 的旧版浏览器提供支持。</p></blockquote> <div class="language-javascript extra-class"><pre class="language-javascript"><code>pnpm install vite<span class="token operator">-</span>plugin<span class="token operator">-</span>imagemin <span class="token operator">-</span><span class="token constant">D</span>
+</code></pre></div><p>vite.config.js</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> legacy <span class="token keyword">from</span> <span class="token string">'@vitejs/plugin-legacy'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">legacy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">targets</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'defaults'</span><span class="token punctuation">,</span> <span class="token string">'not IE 11'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/05/17/ 11:50:22</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/vue3/vue3-ts-viteda-bao.html#打包分析-npm-i-rollup-plugin-visualizer-d" class="sidebar-link reco-side-打包分析-npm-i-rollup-plugin-visualizer-d" data-v-cb1513f6>打包分析 npm i rollup-plugin-visualizer -D</a></li><li class="level-2" data-v-cb1513f6><a href="/vue3/vue3-ts-viteda-bao.html#文件压缩-npm-i-vite-plugin-compression-d" class="sidebar-link reco-side-文件压缩-npm-i-vite-plugin-compression-d" data-v-cb1513f6>文件压缩 npm i vite-plugin-compression -D</a></li><li class="level-2" data-v-cb1513f6><a href="/vue3/vue3-ts-viteda-bao.html#压缩图片-npm-i-vite-plugin-imagemin-d" class="sidebar-link reco-side-压缩图片-npm-i-vite-plugin-imagemin-d" data-v-cb1513f6>压缩图片 npm i vite-plugin-imagemin -D</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><canvas id="vuepress-canvas-cursor"></canvas><div></div></div></div>
+    <script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/app.ea8024b0.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/3.c5a22957.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/1.56ff20d7.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/22.96430577.js" defer></script>
+  </body>
+</html>

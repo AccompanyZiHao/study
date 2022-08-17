@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>leetcode 138 复制带随机指针的链表 | 吴小白 blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@alpha"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?248d9036a61108ac328748f98ff1dcb0";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+      </script>
+    <script>
+      (function() {
+         if (location.href.indexOf('github.io') > -1 || location.href.indexOf('gitee.io') > -1) {
+             location.href = 'https://wuxiaobai.cn'
+         }
+      })();
+      </script><script type='application/ld+json'>
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "leetcode 138 复制带随机指针的链表",
+            "url": "https://wuxiaobai.cn/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html",
+            "image": [
+              "https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image"
+              ],
+            "datePublished": "2022-02-15T22:09:59.000Z",
+            "dateModified": "2022-05-17T08:31:15.000Z",
+            "author": [{
+                "@type": "Person",
+                "name": "吴小白",
+                "url": "https://github.com/AccompanyZiHao/study"
+            }]
+          }
+      </script>
+    <meta name="description" content="wu xiao bai&#39;s blog， 一个前端小白，记录日常遇到的问题以及解决方案，总结归纳成文档以方便后续的查找阅读，寻找一起发现未来的新大陆的你。">
+    <meta property="article:published_time" content="2022-02-15T22:09:59.000Z">
+    <meta property="article:modified_time" content="2022-05-17T08:31:15.000Z">
+    <meta property="og:site_name" content="wuxiaobai`s blog">
+    <meta property="og:title" content="leetcode 138 复制带随机指针的链表">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wuxiaobai.cn/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html">
+    <meta property="og:image" content="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image">
+    <meta name="twitter:title" content="leetcode 138 复制带随机指针的链表">
+    <meta name="twitter:url" content="https://wuxiaobai.cn/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="算法, leetcode">
+    <meta property="article:tag" content="算法">
+    <meta name="keywords" content="吴小白，wuxiaobai，javascript，ES6，js，博客，总结，前端，归纳。 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="baidu-site-verification" content="code-hp6IEwjoOt">
+    <meta name="360-site-verification" content="19d8a61398aa8dafb3c57808fdec09fd">
+    <meta name="msvalidate.01" content="BCD4672E3D575EA13E440C8FCAF8ACED">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/css/0.styles.74345fc0.css" as="style"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/app.ea8024b0.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/3.c5a22957.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/1.56ff20d7.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/11.822cf5a0.js" as="script"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/10.3987f424.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/12.4533dc0d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/13.e32270f0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/14.ebc89fa2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/15.47b872b3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/16.3e13e072.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/17.31eb3665.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/18.d277d3e8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/19.aa417e25.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/20.e06ae432.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/21.617246bb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/22.96430577.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/23.3811048a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/24.5f8df972.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/25.9f0d9713.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/26.d005ae81.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/27.ed700a4d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/28.c0ba51a2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/29.3c524c37.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/30.c3d85871.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/31.a2f2beff.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/32.f0f52f84.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/33.41477bf4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/34.5284afad.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/35.3a6a8148.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/36.654ddf6d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/37.c64c9181.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/38.a55e88af.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/39.b5cb24ec.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/4.56f9e857.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/40.4e5abe9c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/41.f25c6a0a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/42.d19c518d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/43.1e2006ec.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/44.f12a69d8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/45.cd8302ae.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/46.e8129e7f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/47.29834f57.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/48.9488905d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/49.e4ff1f05.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/5.90dccfd7.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/50.ac12b7aa.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/51.fb3f5d02.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/52.76e1cbc2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/53.3c89c1b1.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/54.f160104f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/55.6449d010.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/56.8f384c8e.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/57.5d5efbe3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/58.bfae00e4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/59.85d20030.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/6.cb483b76.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/7.e8cc960c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/8.8972209b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/9.802eb800.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/css/0.styles.74345fc0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-130b300a><div data-v-130b300a><div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-130b300a data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>吴小白 blog</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>wu xiao bai's blog， 一个前端小白，记录日常遇到的问题以及解决方案，总结归纳成文档以方便后续的查找阅读，寻找一起发现未来的新大陆的你。</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div class="hide" data-v-130b300a><header class="navbar" data-v-130b300a><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">吴小白 blog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/leetcode/" class="nav-link"><i class="undefined"></i>
+  leetcode
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      吴小白的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/AccompanyZiHao" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2559318799689463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-130b300a></div> <aside class="sidebar" data-v-130b300a><div class="personal-info-wrapper" data-v-39576ba9 data-v-130b300a><img src="https://p26-passport.byteacctimg.com/img/user-avatar/4df5fcbe927ed531544e53686055b6e0~300x300.image" alt="author-avatar" class="personal-img" data-v-39576ba9> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>44</h3> <h6 data-v-39576ba9>文章</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>15</h3> <h6 data-v-39576ba9>标签</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/JavaScript/" class="nav-link"><i class="undefined"></i>
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/categories/面试/" class="nav-link"><i class="undefined"></i>
+  面试
+</a></li><li class="dropdown-item"><!----> <a href="/categories/leetcode/" class="nav-link"><i class="undefined"></i>
+  leetcode
+</a></li><li class="dropdown-item"><!----> <a href="/categories/Linux/" class="nav-link"><i class="undefined"></i>
+  Linux
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      吴小白的博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/AccompanyZiHao" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://juejin.cn/user/2559318799689463" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  About
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-130b300a><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>leetcode 138 复制带随机指针的链表</h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2022
+        </a></span></div></div> <div data-v-130b300a><main class="page"><section><div class="page-title"><h1 class="title">leetcode 138 复制带随机指针的链表</h1> <div data-v-f875f3fc><i class="iconfont reco-account" data-v-f875f3fc><span data-v-f875f3fc>白菜</span></i> <i class="iconfont reco-date" data-v-f875f3fc><span data-v-f875f3fc>2022/2/16</span></i> <!----> <i class="tags iconfont reco-tag" data-v-f875f3fc><span class="tag-item" data-v-f875f3fc>算法</span><span class="tag-item" data-v-f875f3fc>leetcode</span></i></div></div> <div class="theme-reco-content content__default"><h2 id="题目"><a href="#题目" class="header-anchor">#</a> 题目</h2> <p>给你一个长度为 <code>n</code> 的链表，每个节点包含一个额外增加的随机指针 <code>random</code> ，该指针可以指向链表中的任何节点或空节点。</p> <p>构造这个链表的 深拷贝。 深拷贝应该正好由 <code>n</code> 个 全新 节点组成，其中每个新节点的值都设为其对应的原节点的值。新节点的 <code>next</code> 指针和 <code>random</code> 指针也都应指向复制链表中的新节点，并使原链表和复制链表中的这些指针能够表示相同的链表状态。复制链表中的指针都不应指向原链表中的节点 。</p> <p>例如，如果原链表中有 <code>X</code> 和 <code>Y</code> 两个节点，其中 <code>X.random --&gt; Y</code> 。那么在复制链表中对应的两个节点 <code>x</code> 和 <code>y</code> ，同样有 <code>x.random --&gt; y</code> 。</p> <p>返回复制链表的头节点。</p> <p>用一个由 <code>n</code> 个节点组成的链表来表示输入/输出中的链表。每个节点用一个 <code>[val, random_index]</code> 表示：</p> <ul><li>val：一个表示 <code>Node.val</code> 的整数。</li> <li>random_index：随机指针指向的节点索引（范围从 0 到 n-1）；如果不指向任何节点，则为 <code>null</code> 。</li></ul> <p>你的代码只接受原链表的头节点 <code>head</code> 作为传入参数。</p> <h2 id="示例-1"><a href="#示例-1" class="header-anchor">#</a> 示例 1：</h2> <p><img src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/img/138_01.f91341db.jpg" alt="alt"></p> <div class="language- extra-class"><pre class="language-text"><code>输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]
+</code></pre></div><p>示例 2：
+<img src="data:image/jpeg;base64,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" alt="alt"></p> <div class="language- extra-class"><pre class="language-text"><code>输入：head = [[1,1],[2,1]]
+输出：[[1,1],[2,1]]
+</code></pre></div><p>示例 3：
+<img src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/img/138_03.c1bcdb1c.jpg" alt="alt"></p> <div class="language- extra-class"><pre class="language-text"><code>输入：head = [[3,null],[3,0],[3,null]]
+输出：[[3,null],[3,0],[3,null]]
+</code></pre></div><h2 id="提示"><a href="#提示" class="header-anchor">#</a> 提示：</h2> <ul><li>0 &lt;= n &lt;= 1000</li> <li>-104 &lt;= Node.val &lt;= 104</li> <li>Node.random 为 null 或指向链表中的节点。</li> <li>Discussion | Solution</li></ul> <p>看到这个题目之后，有点懵逼，一时之间竟没有看懂，在反复读了几遍之后，结合示例总算是整明白了，就是克隆一个链表出来，但是他的值，以及指针指的都是克隆链表自己的，与原链表没有半毛钱关系，用 <code>js</code> 的话呢，来讲就是实现一个链表的深拷贝</p> <p>题目分析</p> <ol><li>判断链表是否为空，为空返回 null</li> <li>遍历链表，复制链表的每个节点，并将值复制成一样的，然后拼接在原节点的后面,克隆节点 random 指向的就是原节点的 random</li> <li>找到一个克隆的节点，修正克隆节点的 radom 指针，克隆节点指的是克隆节点</li> <li>拆分链表分为原节点链表和克隆节点链表</li></ol> <p>第一次循环我们每个节点产生一个克隆人</p> <div class="language- extra-class"><pre class="language-text"><code>let p = head;
+let q;
+while (p) {
+  q = new ListNode(p.val)
+  q.next = p.next
+  q.random = p.random
+
+  // 原链表的节点指向该节点的克隆人
+  p.next = q
+  // 原链表的指针向后移动一位
+  p = q.next
+}
+p = head.next
+</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/img/138_04.f41d67f0.jpg" alt="alt">
+克隆节点创建完成之后，他的<code>random</code>指针指向有问题，他指的是原链表的指针，实际上他需要指向原链表的克隆节点，那不就是原链表的 <code>next</code>嘛</p> <p>第二次循环，修正克隆节点的 <code>random</code> 指针</p> <div class="language- extra-class"><pre class="language-text"><code>// 找到克隆节点
+p = head.next
+while (p) {
+  // 修复指针
+  if(p.random){
+    p.random = p.random.next
+  }
+  // 克隆节点之间多了一个原节点因此需要走两步
+  if(p.next){
+    p = p.next.next
+  }else{
+    p = p.next
+  }
+}
+</code></pre></div><p>第三次循环拆分链表,拆为原链表和克隆链表</p> <div class="language- extra-class"><pre class="language-text"><code>p = q = head.next
+// 循环的是原链表
+while (q.next) {
+  // 原链表
+  head.next = head.next.next
+  // 克隆链表
+  q.next = q.next.next
+  // 移动链表
+  head = head.next
+  q = q.next
+}
+</code></pre></div><p>当链表结束的时候，我们要设置 <code>head.next = null</code>, 因为原链表的下一个链表链接的不是他的克隆节点嘛，因此需要断开他们</p> <h2 id="solution"><a href="#solution" class="header-anchor">#</a> solution</h2> <div class="language- extra-class"><pre class="language-text"><code>/*
+ * @lc app=leetcode.cn id=138 lang=javascript
+ *
+ * [138] 复制带随机指针的链表
+ */
+
+// @lc code=start
+/**
+ * // Definition for a Node.
+ * function Node(val, next, random) {
+ *    this.val = val;
+ *    this.next = next;
+ *    this.random = random;
+ * };
+ */
+
+/**
+ * @param {Node} head
+ * @return {Node}
+ */
+var copyRandomList = function(head) {
+    if(!head) return null
+    let p = head;
+    let q;
+    while (p) {
+      q = new ListNode(p.val)
+      q.next = p.next
+      q.random = p.random
+
+      p.next = q
+      p = q.next
+    }
+    p = head.next
+    while (p) {
+      if(p.random){
+        p.random = p.random.next
+      }
+      if(p.next){
+        p = p.next.next
+      }else{
+        p = p.next
+      }
+    }
+    p = q = head.next
+    while (q.next) {
+      head.next = head.next.next
+      q.next = q.next.next
+
+      head = head.next
+      q = q.next
+    }
+    head.next = null
+    return p
+};
+// @lc code=end
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2022/05/17/ 16:31:15</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html#题目" class="sidebar-link reco-side-题目" data-v-cb1513f6>题目</a></li><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html#示例-1" class="sidebar-link reco-side-示例-1" data-v-cb1513f6>示例 1：</a></li><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html#提示" class="sidebar-link reco-side-提示" data-v-cb1513f6>提示：</a></li><li class="level-2" data-v-cb1513f6><a href="/leetcode/leetcode-138-fu-zhi-dai-sui-ji-zhi-zhen-de-lian-biao.html#solution" class="sidebar-link reco-side-solution" data-v-cb1513f6>solution</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div></div><canvas id="vuepress-canvas-cursor"></canvas><div></div></div></div>
+    <script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/app.ea8024b0.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/3.c5a22957.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/1.56ff20d7.js" defer></script><script src="https://cdn.jsdelivr.net/gh/AccompanyZiHao/study@gh-pages/assets/js/11.822cf5a0.js" defer></script>
+  </body>
+</html>
